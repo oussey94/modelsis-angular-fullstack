@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="card-content shadow mb-4">
+        <div class="card-header text-center bg-primary text-white text-uppercase">
+            Ajout d'un produit
+        </div>
+      
+    <div class="card-body">
+    <form novalidate (ngSubmit)="ajouterProduct()" [formGroup]="productForm" >
+
+        <div class="form-group row mb-2">
+            <label for="productNameId" class="col-md-2 col-form-label" >
+                Name
+            </label>
+            <div class="col-md-8">
+                <input 
+                 id="productNameId"
+                 type="text" 
+                 class="form-control"
+                 formControlName="name"
+                 placeholder="le nom du produit">
+            </div>
+            
+        </div>
+
+        <div class="form-group row mb-2">
+            <label for="dateCreationId" class="col-md-2 col-form-label" >
+                Date Created
+            </label>
+            <div class="col-md-8">
+                <input 
+                 id="dateCreationId"
+                 type="date" 
+                 class="form-control"
+                 formControlName="created_at"
+                 placeholder="la date effectif du contrat">
+            </div>
+            
+        </div>
+
+        <div class="form-group row mb-2">
+            <label for="cliendId" class="col-md-2 col-form-label" >
+                Type
+            </label>
+            <div class="col-md-8">
+                <select class="form-control" formControlName="type">
+                    <option value="">Choisissez le type de produit</option>
+                    <option *ngFor="let type of types" [ngValue]="type">{{type.name}}</option>
+                </select>
+            </div>
+            
+        </div>
+
+        <div class="text-lg-right mt-2">
+                <button type="submit"  class="btn btn-outline-primary mr-3">sauvegarder</button>
+                <button class="btn btn-outline-secondary ml-3" type="button" routerLink="/produits">annuler</button>
+        </div>
+    </form>
+</div>
+</div>
+</div>
